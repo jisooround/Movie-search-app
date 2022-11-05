@@ -18,28 +18,44 @@
     renderMovies(movies);
   })
 
-  console.log(movies);
-
   async function getMovies(page = 1) {
-    const res = await fetch(`https://omdbapi.com/?apikey=7035c60c&s=avengers&page=${page}`)
+    let searchText = document.getElementsByClassName('search--inner--form').value;
+    const res = await fetch(`https://omdbapi.com/?apikey=7035c60c&s=`+ searchText +`&page=${page}`)
     const { Search: movies } = await res.json();
     return movies;
   }
 
   function searchArea(movies){
+
+    // div el
     const el = document.createElement('div');
     el.classList.add('search--inner');
+
+    // form
+    const formEl = document.createElement('form');
+    formEl.classList.add('search--inner--form')
     
     // input
     const inputEl = document.createElement('input');
+    inputEl.classList.add('search--inner--form--input');
+    inputEl.setAttribute('type', 'text');
+    inputEl.setAttribute('value', '');
+    inputEl.setAttribute('placeholder', 'Please enter a movie title.');
+    
+    // button
+    const btnEl = document.createElement('input');
+    btnEl.classList.add('search--inner--form--button');
+    btnEl.setAttribute('type', 'button');
+    btnEl.setAttribute('value', 'Search');
+    btnEl.setAttribute('value', 'Search');
     
     // year select box
-    const yearSelectEl = document.querySelector('select');
-    const yearEl = document.createAttribute('')
 
-    el.append(yearSelectEl,inputEl);
+    formEl.append(inputEl, btnEl);
+    el.append(formEl);
     searchEl.append(el);
   }
+
 
   function renderMovies(movies) {
     for (const movie of movies) {
