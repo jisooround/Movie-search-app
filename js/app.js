@@ -1,5 +1,4 @@
 const container = document.getElementById('root');
-const form = document.createElement('form');
 const inputEl = document.createElement('input');
 const buttonEl = document.createElement('button');
 inputEl.type = 'text';
@@ -42,6 +41,5 @@ inputEl.addEventListener('keydown', (e)=> {
   }
 });
 
-form.appendChild(inputEl);
-form.appendChild(buttonEl);
-container.appendChild(form);
+container.appendChild(inputEl);
+container.appendChild(buttonEl);
