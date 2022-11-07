@@ -5,6 +5,7 @@ const buttonEl = document.createElement('button');
 inputEl.type = 'text';
 buttonEl.innerHTML = 'Search';
 
+
 // 영화 검색 결과 불러오기
 async function getMovies(keyword) {
     const res = await fetch(`https://omdbapi.com/?apikey=7035c60c&s=${keyword}&page=1`);
@@ -22,7 +23,7 @@ async function getMovies(keyword) {
     imgEl.src = `${movie.Poster}`;
     
     poster.appendChild(imgEl);
-    aEl.appendChild(poster)
+    aEl.appendChild(poster);
     li.appendChild(aEl);
     ul.appendChild(li);
     container.appendChild(ul);
