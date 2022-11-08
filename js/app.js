@@ -31,42 +31,32 @@ async function getMovies(title, year='', page = 2) {
     const {Search : movies, totalResults} = await res.json();
     console.log(movies);
     console.log(totalResults);
+    renderMovies(movies);
+}
 
-
-    // 검색 결과 html로 생성
-    for(let movie of movies){
-    const movieEl = document.createElement('div');
-    movieEl.className = 'feed--movie';
-    const divEl = document.createElement('div');
-    divEl.className = 'feed--movie--img';
-    const imgEl = document.createElement('img');
-    const infoEl = document.createElement('div');
-    infoEl.className = 'feed--movie--info';
-    const titleEl = document.createElement('a');
-    titleEl.className = 'feed--movie--info--title';
-    const yearInfoEl = document.createElement('p');
-    yearInfoEl.className = 'feed--movie--info--year';
-  
-    titleEl.innerHTML = `${movie.Title}`;
-    yearInfoEl.innerHTML = `${movie.Year}`;
-    imgEl.src = `${movie.Poster}`;
-
-    if(`${movie.Poster}` === 'N/A'){
-      imgEl.src = 'https://media.istockphoto.com/vectors/no-image-available-icon-vector-id1216251206?k=20&m=1216251206&s=170667a&w=0&h=A72dFkHkDdSfmT6iWl6eMN9t_JZmqGeMoAycP-LMAw4=';
-    };
-    
-    divEl.appendChild(imgEl);
-    movieEl.appendChild(divEl);
-    infoEl.appendChild(titleEl);
-    infoEl.appendChild(yearInfoEl);
-    movieEl.appendChild(infoEl);
-    movieFeed.appendChild(movieEl);
-    movieFeed.appendChild(actionDiv);
-    container.appendChild(movieFeed);
-  }
-};
-
-
+// 검색 결과 출력
+function renderMovies(movies) {
+      for(let movie of movies){
+        const movieEl = document.createElement('div');
+        movieEl.className = 'feed--movie';
+        movieEl.innerHTML = `
+          <div class="feed--movie--img">
+          <img src="${movie.Poster}" />
+          </div>
+          <div class="feed--movie--info">
+          <a class="feed--movie--info--title">"${movie.Title}"</a>
+          <p class="feed--movie--info--year">"${movie.Year}"</p>
+          </div>
+        `
+        if("${movie.Poster}" === 'N/A'){
+          imgEl.src = 'https://media.istockphoto.com/vectors/no-image-available-icon-vector-id1216251206?k=20&m=1216251206&s=170667a&w=0&h=A72dFkHkDdSfmT6iWl6eMN9t_JZmqGeMoAycP-LMAw4=';
+        };
+        
+        movieFeed.appendChild(movieEl);
+        movieFeed.appendChild(actionDiv);
+        container.appendChild(movieFeed);
+      };
+}
 
 
 // 결과 더 가져오기 버튼
@@ -79,6 +69,7 @@ actionDiv.appendChild(moreBtn);
 moreBtn.addEventListener('click', clickMoreBtn);
 
 async function clickMoreBtn() {
+  movieFeed.innerHTML = '';
   const movies = await getMovies(page);
   page++;
   getMovies(movies);
