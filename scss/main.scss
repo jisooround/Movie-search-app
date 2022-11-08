@@ -1,58 +1,75 @@
 body {
   background-color: #FEFFD4;
+  font-family: 'BioRhyme' ,'Arvo', serif;
 }
-.main {
+img {
+  display: block;
+}
+
+#root {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  .search {
-    display: flex;
-    width: 100%;
-    &--inner {
-      &--form {
-        display: block;
-        width: 100%;
-        &--input {
-          width: 300px;
-        }
-      }
-    }
-  }
-  .movies {
+  .feed {
     width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
     margin-top: 50px;
-    .movie {
+    &--action{
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 100px;
+      &--btn {
+        display: block;
+        margin: auto;
+        width: 100px;
+        height: 40px;
+        background-color: #000;
+        color: #FEFFD4;
+        outline: none;
+        box-shadow: none;
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        font-size: 14px;
+      }
+    }
+    &--movie {
       flex: 0 0 16.666667%;
       max-width: 16.666667%;
-      overflow: hidden;
       padding: 0px 20px 50px 20px;
       box-sizing: border-box;
       display: flex;
       flex-wrap: wrap;
-      h1 {
-        flex: 0 0 100%;
-        text-align: left;
-        padding-top: 10px;
-        color: #000;
-        font-family: 'BioRhyme' ,'Arvo', serif;
-        font-size: 17px;
-        font-weight: 700;
-        line-height: 1.4;
-      }
-      p{
-        padding-top: 3px;
-        font-family: 'BioRhyme' ,'Arvo', serif;
-        font-size: 14px;
-      }
-      img {
+      align-content: space-between;
+      &--img {
         --size: 100%;
         width: var(--size);
         height: calc(var(--size) * 3 / 2);
-        display: block;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+      &--info {
+        padding-top: 10px;
+        &--title {
+          flex: 0 0 100%;
+          text-align: left;
+          padding-top: 10px;
+          color: #000;
+          font-family: 'BioRhyme' ,'Arvo', serif;
+          font-size: 17px;
+          font-weight: 700;
+          line-height: 1.4;
+        }
+        &--year {
+          padding-top: 3px;
+          font-family: 'BioRhyme' ,'Arvo', serif;
+          font-size: 14px;
+        }
       }
     }
   }
