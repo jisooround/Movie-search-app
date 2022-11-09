@@ -1,5 +1,3 @@
-// import makeMoreButton from "./makeMoreButton";
-
 export default function renderMovies(movies) {
   for(let movie of movies){
     const movieEl = document.createElement('div');

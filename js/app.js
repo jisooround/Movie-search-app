@@ -1,5 +1,5 @@
 import renderMovies from "./renderMovies.js";
-import makeMoreButton from "./moreButton.js"
+import moreButton from "./moreButton.js"
 
 const movieFeed = document.getElementById('movieFeed');
 
@@ -18,7 +18,7 @@ async function getMovies(title, year='', page = 1) {
     console.log(movies);
     console.log(totalResults);
     renderMovies(movies);
-    makeMoreButton();
+    moreButton();
     return movies;
 };
 
