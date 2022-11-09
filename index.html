@@ -18,5 +18,43 @@
 <body>
  <div id="root">
  </div>
+ <!-- HEADER -->
+ <header class="header">
+  <div class="header--container">
+    <a href="#" class="header--container--logo">
+      CINEMA BOX.
+    </a>
+    <div class="header--container--nav">
+      <div class="header--container--nav--search">Search.</div>
+      <div class="header--container--nav--about">About.</div>
+    </div>
+  </div>
+ </header>
+ <!-- INTRO -->
+ <div class="intro">
+  <div class="intro--container">
+    <h1 class="intro--container--title">CINEMA BOX</h1>
+    <p class="intro--container--desc">The OMDb API is a RESTful web service to obtain movie information,
+      <br/>all content and images on the site are contributed and maintained by our users.
+      <br/>If you find this service useful, please consider making a one-time donation or become a patron.
+      </p>
+    <div class="intro--container--btnwrap">
+      <button class="intro--container--btnwrap--btn">
+        <img src="./images/intro_arrow.svg" alt="" class="arrow">
+      </button>
+    </div>
+  </div>
+ </div>
+ <div class="main">
+  <div class="main--search" id="searchGroup">
+    <h3 class="main--search--title">Search for the movie.</h3>
+    <input type="text" id="search-input" placeholder="movie title" class="main--search--input" />
+    <button type="button" id="searchBtn" class="main--search--btn">Search</button>
+  </div>
+<div class="main--movie">
+  <div id="movieFeed" class="main--movie--item">
+  </div>
+</div>
+ </div>
 </body>
 </html>

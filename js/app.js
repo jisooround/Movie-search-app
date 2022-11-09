@@ -1,26 +1,11 @@
-const container = document.getElementById('root');
+import renderMovies from "./renderMovies";
 
-// Feed section
-const movieFeed = document.createElement('div');
-movieFeed.className = 'feed'
+const movieFeed = document.getElementById('movieFeed');
 
 // Search section
-const searchEl = document.createElement('div');
-const inputEl = document.createElement('input');
-const buttonEl = document.createElement('button');
-const sYear = document.createElement('select');
-const sYearOption = document.createElement('option');
-sYear.name = 'Year';
-sYear.id = 'year-select';
-inputEl.type = 'text';
-inputEl.id = 'search-input'
-buttonEl.innerHTML = 'Search';
-buttonEl.type = 'button';
-searchEl.className = 'search';
-searchEl.appendChild(sYear);
-searchEl.appendChild(inputEl);
-searchEl.appendChild(buttonEl);
-
+const searchEl = document.getElementById('searchGroup');
+const inputEl = document.getElementById('search-input')
+const buttonEl = document.getElementById('searchBtn')
 
 // 영화 검색 결과 불러오기
 async function getMovies(title, year='', page = 2) {
@@ -35,49 +20,53 @@ async function getMovies(title, year='', page = 2) {
 }
 
 // 검색 결과 출력
-function renderMovies(movies) {
-      for(let movie of movies){
-        const movieEl = document.createElement('div');
-        movieEl.className = 'feed--movie';
-        movieEl.innerHTML = `
-          <div class="feed--movie--img">
-          <img src="${movie.Poster}" />
-          </div>
-          <div class="feed--movie--info">
-          <a class="feed--movie--info--title">"${movie.Title}"</a>
-          <p class="feed--movie--info--year">"${movie.Year}"</p>
-          </div>
-        `
-        if("${movie.Poster}" === 'N/A'){
-          imgEl.src = 'https://media.istockphoto.com/vectors/no-image-available-icon-vector-id1216251206?k=20&m=1216251206&s=170667a&w=0&h=A72dFkHkDdSfmT6iWl6eMN9t_JZmqGeMoAycP-LMAw4=';
-        };
-        
-        movieFeed.appendChild(movieEl);
-        movieFeed.appendChild(actionDiv);
-        container.appendChild(movieFeed);
-      };
-}
-
+// function renderMovies(movies) {
+//       for(let movie of movies){
+//         const movieEl = document.createElement('div');
+//         const imgDivEl = document.createElement('div');
+//         const imgEl = document.createElement('img');
+//         const infoDivEl = document.createElement('div');
+//         const titleEl = document.createElement('h4');
+//         const yearEl = document.createElement('p');
+//         movieEl.className = 'main--movie--item--group';
+//         imgDivEl.className = 'main--movie--item--group--imgdiv';
+//         infoDivEl.className = 'main--movie--item--group--infodiv';
+//         titleEl.className = 'main--movie--item--group--infodiv--title';
+//         yearEl.className = 'main--movie--item--group--infodiv--year';
+//         imgEl.src = `${movie.Poster}`;
+//         titleEl.innerText = `${movie.Title}`;
+//         yearEl.innerText = `${movie.Year}`;
+//         imgDivEl.appendChild(imgEl);
+//         infoDivEl.appendChild(titleEl);
+//         infoDivEl.appendChild(yearEl);
+//         movieEl.appendChild(imgDivEl);
+//         movieEl.appendChild(infoDivEl);
+//         movieFeed.appendChild(movieEl);
+//         movieFeed.appendChild(actionDiv);
+//       };
+// }
 
 // 결과 더 가져오기 버튼
-const actionDiv = document.createElement('div');
-actionDiv.className = 'feed--action';
-const moreBtn = document.createElement('button');
-moreBtn.innerHTML = 'More';
-moreBtn.className = 'feed--action--btn';
-actionDiv.appendChild(moreBtn);
-moreBtn.addEventListener('click', clickMoreBtn);
+// const actionDiv = document.createElement('div');
+// actionDiv.className = 'main--movie--item--action';
+// const moreBtn = document.createElement('button');
+// moreBtn.innerHTML = 'More';
+// moreBtn.className = 'main--movie--item--action--btn';
+// actionDiv.appendChild(moreBtn);
+// moreBtn.addEventListener('click', clickMoreBtn);
 
-async function clickMoreBtn() {
-  movieFeed.innerHTML = '';
-  const movies = await getMovies(page);
-  page++;
-  getMovies(movies);
-}
+// function clickMoreBtn() {
+//   // const movies = getMovies(page);
+//   // const pageUp = page+1;
+//   // getMovies(pageUp);
+//   // renderMovies(movies);
+//   console.log('page2')
+// }
 
 // search 버튼 클릭 시 input의 value가 api {t}로 전송
 buttonEl.addEventListener('click', searchClick);
 function searchClick(){
+  movieFeed.innerHTML = '';
   let title = inputEl.value;
   console.log(title);
   getMovies(title);
@@ -90,7 +79,3 @@ function searchEnter(event){
     searchClick();
   }
 }
-
-
-
-container.appendChild(searchEl);
