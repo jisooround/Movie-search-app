@@ -1,4 +1,4 @@
-import moreMovies from "./moreMovies";
+// import makeMoreButton from "./makeMoreButton";
 
 export default function renderMovies(movies) {
   for(let movie of movies){
@@ -13,9 +13,15 @@ export default function renderMovies(movies) {
     infoDivEl.className = 'main--movie--item--group--infodiv';
     titleEl.className = 'main--movie--item--group--infodiv--title';
     yearEl.className = 'main--movie--item--group--infodiv--year';
+
     imgEl.src = `${movie.Poster}`;
     titleEl.innerText = `${movie.Title}`;
     yearEl.innerText = `${movie.Year}`;
+
+    if(`${movie.Poster}` === "N/A"){
+      imgEl.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
+    };
+
     imgDivEl.appendChild(imgEl);
     infoDivEl.appendChild(titleEl);
     infoDivEl.appendChild(yearEl);
