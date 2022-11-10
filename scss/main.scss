@@ -15,11 +15,11 @@ img {
   border-bottom: 1px solid #FEFFD4;
   display: flex;
   align-content: center;
-  &--container {
+  .container {
     display: flex;
     padding: 0 80px;
     height: 100%;
-    &--logo {
+    .logo {
       height: 100%;
       display: flex;
       align-items: center;
@@ -30,11 +30,11 @@ img {
       margin-right: 10px;
       text-align: center;
     }
-    &--nav {
+    .nav {
       color: #FEFFD4;
       display: flex;
       align-items: center;
-      &--search,&--about{
+      &__search, &__about{
         font-family: 'BioRhyme' ,'Arvo', serif;
         width: 95px;
         height: 35px;
@@ -46,23 +46,23 @@ img {
         align-items: center;
         cursor: pointer;
       }
-      &--search:hover, &--about:hover{
+      &__search:hover, &__about:hover{
         background-color: #FEFFD4;
         color: #000;
       }
     } 
   }
 }
+
 .intro {
-  &--container {
+  .container {
     width: 100%;
     height: 100vh;
     background-color: #000;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    // align-content: space-between;
-    &--title {
+    .title {
       padding-top: 180px;
       font-size: 100px;
       line-height: -1;
@@ -70,7 +70,7 @@ img {
       text-align: center;
       font-family: 'BioRhyme' ,'Arvo', serif;
     }
-    &--desc {
+    .desc {
       width: 100%;
       text-align: center;
       padding-bottom: 20px;
@@ -79,7 +79,7 @@ img {
       color: #FEFFD4;
       font-family: 'BioRhyme' ,'Arvo', serif;
     }
-    &--btnwrap {
+    .arrow {
       width: 100%;
       height: auto;
       display: flex;
@@ -87,7 +87,7 @@ img {
       padding-top: 100px;
       padding-bottom: 30px;
       align-content: flex-end;
-      &--btn {
+      &__btn {
         width: 250px;
         height: 180px;
         border-radius: 90px;
@@ -98,7 +98,7 @@ img {
         align-items: center;
         cursor: pointer;
       }
-      &--btn:hover {
+      &__btn:hover {
         background-color: #FEFFD4;
         img {
           filter: invert(100%);
@@ -113,97 +113,13 @@ img {
   justify-content: center;
   flex-wrap: wrap;
   height: 100vh;
-  &--movie {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    &--item {
-      align-items: flex-start;
-      margin-top: 150px;
-      box-sizing: border-box;
-      display: flex;
-      flex-wrap: wrap;
-      &--action {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        &--btn {
-          font-size: 20px;
-          color: #FEFFD4;
-          padding: 10px 30px;
-          margin: 50px 0 100px 0;
-          background-color: #000;
-          display: inline-block;
-          border: none;
-          font-family: 'BioRhyme' ,'Arvo', serif;
-          cursor: pointer;
-        }
-      }
-      &--group {
-        padding: 0px 20px 50px 20px;
-        display: flex;
-        width: 16.666667%;
-        max-width: 16.666667%;
-        flex-wrap: wrap;
-        box-sizing: border-box;
-        position: relative;
-        &--imgdiv {
-          --size: 100%;
-          width: var(--size);
-          max-height: calc(var(--size) * 3 / 2);
-          overflow: hidden;
-          img {
-            width: 100%;
-            height: auto;
-            display: block;
-            }
-          }
-        &--infodiv {
-          padding-top: 10px;
-          &--title {
-            flex: 0 0 100%;
-            text-align: left;
-            padding-top: 10px;
-            color: #000;
-            font-family: 'BioRhyme' ,'Arvo', serif;
-            font-size: 17px;
-            font-weight: 700;
-            line-height: 1.4;
-          }
-          &--year {
-            padding-top: 3px;
-            font-family: 'BioRhyme' ,'Arvo', serif;
-            font-size: 14px;
-          }
-        }
-      }
-    }
-    &--action{
-      width: 100%;
-      padding-top: 50px;
-      padding-bottom: 100px;
-      &--btn {
-        display: block;
-        margin: auto;
-        width: 100px;
-        height: 40px;
-        background-color: #000;
-        color: #FEFFD4;
-        outline: none;
-        box-shadow: none;
-        font-family: 'BioRhyme' ,'Arvo', serif;
-        font-size: 14px;
-      }
-    }
-  }
-  &--search {
+  .search-container {
     width: 90%;
     padding-top: 100px;
     display: flex;
     justify-content: flex-end;
     position: relative;
-    &--title {
+    .title {
       margin-left: 20px;
       font-size: 32px;
       font-family: 'BioRhyme' ,'Arvo', serif;
@@ -211,7 +127,7 @@ img {
       position: absolute;
       left: 0;
     }
-    &--input {
+    .search-input {
       width: 250px;
       height: 50px;
       font-size: 16px;
@@ -225,7 +141,7 @@ img {
       border: none;
       border: 3px solid #000;
     }
-    &--btn {
+    .search-btn {
       width: 130px;
       height: 50px;
       border-radius: 0;
@@ -239,6 +155,81 @@ img {
       margin-right: 20px;
       padding: 0 20px;
       cursor: pointer;
+    }
+  }
+ .movie-container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .item {
+      align-items: flex-start;
+      margin-top: 150px;
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      .group {
+        padding: 0px 20px 50px 20px;
+        display: flex;
+        width: 16.666667%;
+        min-width: 16.666667%;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        position: relative;
+        &__imgdiv {
+          --size: 100%;
+          width: var(--size);
+          max-height: calc(var(--size) * 3 / 2);
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: auto;
+            display: block;
+            }
+          }
+        &__infodiv {
+          padding-top: 10px;
+          &__title {
+            flex: 0 0 100%;
+            text-align: left;
+            padding-top: 10px;
+            color: #000;
+            font-family: 'BioRhyme' ,'Arvo', serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+          }
+          &__year {
+            padding-top: 3px;
+            font-family: 'BioRhyme' ,'Arvo', serif;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .more {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 100px;
+      display: flex;
+      justify-content: center;
+      .more-btn {
+        display: none;
+        margin: auto;
+        width: 100px;
+        height: 50px;
+        background-color: #000;
+        color: #FEFFD4;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        font-size: 14px;
+        cursor: pointer;
+        &.active {
+          display: block;
+        }
+      }
     }
   }
 }

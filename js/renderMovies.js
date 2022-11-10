@@ -6,11 +6,11 @@ export default function renderMovies(movies) {
     const infoDivEl = document.createElement('div');
     const titleEl = document.createElement('h4');
     const yearEl = document.createElement('p');
-    movieEl.className = 'main--movie--item--group';
-    imgDivEl.className = 'main--movie--item--group--imgdiv';
-    infoDivEl.className = 'main--movie--item--group--infodiv';
-    titleEl.className = 'main--movie--item--group--infodiv--title';
-    yearEl.className = 'main--movie--item--group--infodiv--year';
+    movieEl.className = 'group';
+    imgDivEl.className = 'group__imgdiv';
+    infoDivEl.className = 'group__infodiv';
+    titleEl.className = 'group__infodiv__title';
+    yearEl.className = 'group__infodiv__year';
 
     imgEl.src = `${movie.Poster}`;
     titleEl.innerText = `${movie.Title}`;

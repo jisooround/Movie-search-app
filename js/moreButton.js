@@ -3,7 +3,7 @@ export default async function moreButton() {
   actionDiv.className = 'main--movie--item--action';
   const moreBtn = document.createElement('button');
   moreBtn.innerHTML = 'More';
-  moreBtn.id = 'bbtn'
+  moreBtn.id = 'båtn'
   moreBtn.className = 'main--movie--item--action--btn';
   actionDiv.appendChild(moreBtn);
   movieFeed.appendChild(actionDiv);

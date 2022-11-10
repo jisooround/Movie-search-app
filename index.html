@@ -13,47 +13,55 @@
   <link rel="stylesheet" href="/scss/main.scss">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <!-- SCRIPT -->
-  <script defer type="module" src="/js/app.js"></script>
+  <script defer type="module" src="/js/app copy 2.js"></script>
 </head>
 <body>
  <div id="root">
  </div>
  <!-- HEADER -->
  <header class="header">
-  <div class="header--container">
-    <a href="#" class="header--container--logo">
+  <div class="container">
+    <a href="#" class="logo">
       CINEMA BOX.
     </a>
-    <div class="header--container--nav">
-      <div class="header--container--nav--search">Search.</div>
-      <div class="header--container--nav--about">About.</div>
+    <div class="nav">
+      <div class="nav__search">Search.</div>
+      <div class="nav__about">About.</div>
     </div>
   </div>
  </header>
- <!-- INTRO -->
+ <!-- INTRO SECTION -->
  <div class="intro">
-  <div class="intro--container">
-    <h1 class="intro--container--title">CINEMA BOX</h1>
-    <p class="intro--container--desc">The OMDb API is a RESTful web service to obtain movie information,
+  <div class="container">
+    <h1 class="title">CINEMA BOX</h1>
+    <p class="desc">The OMDb API is a RESTful web service to obtain movie information,
       <br/>all content and images on the site are contributed and maintained by our users.
       <br/>If you find this service useful, please consider making a one-time donation or become a patron.
       </p>
-    <div class="intro--container--btnwrap">
-      <button class="intro--container--btnwrap--btn">
-        <img src="./images/intro_arrow.svg" alt="" class="arrow">
+    <div class="arrow">
+      <button class="arrow__btn">
+        <img src="./images/intro_arrow.svg" alt="">
       </button>
     </div>
   </div>
  </div>
+ <!-- MAIN SECTION -->
  <div class="main">
-  <div class="main--search" id="searchGroup">
-    <h3 class="main--search--title">Search for the movie.</h3>
-    <input type="text" id="search-input" placeholder="movie title" class="main--search--input" />
-    <button type="button" id="searchBtn" class="main--search--btn">Search</button>
+  <div class="search-container" id="searchGroup">
+    <h3 class="title">Search for the movie.</h3>
+    <select class="year-select" id="year-select">
+      <option value="1">10</option>
+      <option value="2" selected="selected">20</option>
+      <option value="3">30</option>
+    </select>
+    <input type="text" id="search-input" placeholder="movie title" class="search-input" />
+    <button type="button" id="search-btn" class="search-btn">Search</button>
   </div>
-<div class="main--movie">
-  <div id="movieFeed" class="main--movie--item">
-  <!-- <button class="main--movie--item--action--btn" id="moreBtn">More</button> -->
+<div class="movie-container">
+  <div class="item" id="movieFeed">
+  </div>
+  <div class="more">
+    <button class="more-btn" id="more-btn">More</button>
   </div>
 </div>
  </div>
