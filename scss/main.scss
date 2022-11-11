@@ -115,46 +115,73 @@ img {
   height: 100vh;
   .search-container {
     width: 90%;
-    padding-top: 100px;
+    padding-top: 135px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     position: relative;
     .title {
       margin-left: 20px;
       font-size: 32px;
       font-family: 'BioRhyme' ,'Arvo', serif;
       padding-top: 8px;
-      position: absolute;
-      left: 0;
     }
-    .search-input {
-      width: 250px;
-      height: 50px;
-      font-size: 16px;
-      font-family: 'BioRhyme' ,'Arvo', serif;
-      color: #000;
-      padding-left: 10px;
-      box-sizing: border-box;
-      background-color: transparent;
-      outline: none;
-      box-shadow: none;
-      border: none;
-      border: 3px solid #000;
-    }
-    .search-btn {
-      width: 130px;
-      height: 50px;
-      border-radius: 0;
-      background-color: #000;
-      color: #FEFFD4;
-      font-size: 20px;
-      outline: none;
-      box-shadow: none;
-      font-family: 'BioRhyme' ,'Arvo', serif;
-      border: none;
-      margin-right: 20px;
-      padding: 0 20px;
-      cursor: pointer;
+    .search-wrap {
+      display: flex;
+      .count-select {
+        -webkit-appearance:none;
+        width: 100px;
+        height: 50px;
+        font-size: 16px;
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        color: #000;
+        margin-right: 10px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        background-color: transparent;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        border: 3px solid #000;
+        background: url('https://freepikpsd.com/media/2019/10/down-arrow-icon-png-7-Transparent-Images.png') calc(100% - 5px) center no-repeat;
+        background-size: 10px;
+        ::after {
+          font-family: 'Material Icons';
+          content: "expand_more";
+          -webkit-font-feature-settings: 'link';
+        }
+        .count-option {
+          background-color: #FEFFD4;
+        }
+      }
+      .search-input {
+        width: 250px;
+        height: 50px;
+        font-size: 16px;
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        color: #000;
+        padding-left: 10px;
+        box-sizing: border-box;
+        background-color: transparent;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        border: 3px solid #000;
+      }
+      .search-btn {
+        width: 130px;
+        height: 50px;
+        border-radius: 0;
+        background-color: #000;
+        color: #FEFFD4;
+        font-size: 20px;
+        outline: none;
+        box-shadow: none;
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        border: none;
+        margin-right: 20px;
+        padding: 0 20px;
+        cursor: pointer;
+      }
     }
   }
  .movie-container {
@@ -176,11 +203,14 @@ img {
         flex-wrap: wrap;
         box-sizing: border-box;
         position: relative;
+        // border-bottom: 3px solid black;
+        // flex-grow: 0;
         &__imgdiv {
           --size: 100%;
           width: var(--size);
           max-height: calc(var(--size) * 3 / 2);
           overflow: hidden;
+          padding-top: 20px;
           img {
             width: 100%;
             height: auto;

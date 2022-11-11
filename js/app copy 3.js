@@ -1,25 +1,12 @@
 import renderMovies from "./renderMovies.js";
 
+const movieFeed = document.getElementById('movieFeed');
+
+// Search section
 const inputEl = document.getElementById('search-input');
 const buttonEl = document.getElementById('search-btn');
 const moreBtnEl = document.getElementById('more-btn');
-const movieFeed = document.getElementById('movieFeed');
-const spans = document.querySelectorAll('span');
-const sections = document.getElementsByClassName('section');
-const introTop = sections[0].offsetTop;
-const mainTop = sections[1].offsetTop;
 let page = 1;
-
-// 스크롤 이벤트
-spans[0].onclick = function() {
-  window.scroll({top:mainTop, behavior: 'smooth'});
-}
-spans[1].onclick = function() {
-  window.scroll({top:introTop, behavior: 'smooth'});
-}
-spans[2].onclick = function() {
-  window.scroll({top:mainTop, behavior: 'smooth'});
-}
 
 // 영화 검색 결과 불러오기
 async function getMovies(title = '', page = 1, year = '') {
@@ -70,6 +57,7 @@ async function searchMoviesFirst() {
       console.log(error)
     }
   }
+  console.log(page);
   return page;
 };
 
@@ -82,16 +70,24 @@ function searchEnter(event){
 }
 
 moreBtnEl.addEventListener('click', async() => {
-  page++;
-  console.log(page);
+  const countEl = document.getElementById('count-select');
+  let countElV = (countEl.options[countEl.selectedIndex].value);
+  const newPage = page + countElV;
+
   const title = inputEl.value;
   console.log(title);
-  try {
-    const { Search: movies, totalResults } = await getMovies(title, page);
-    renderMovies(movies)
-    renderMoreBtn(totalResults)
-    console.log(movies);
-  } catch (error) {
-    console.log(error);
+
+  page += 1;
+
+  for(let i = page ; i <= newPage; i++){
+    console.log(i);
+    try {
+      const { Search: movies, totalResults } = await getMovies(title, i);
+      renderMovies(movies)
+      renderMoreBtn(totalResults)
+      console.log(movies);
+    } catch (error) {
+      console.log(error);
+    }
   }
 })
