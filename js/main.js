@@ -39,6 +39,7 @@ async function getMovies(title = '', page = 1, year = '') {
     })
 };
 
+// 남은 결과가 있을 때 버튼 노출
 function renderMoreBtn(totalResults) {
   const total = Math.ceil(Number(totalResults) / 10)
   if (page < total) {
@@ -81,6 +82,7 @@ function searchEnter(event){
   }
 }
 
+// 더보기 버튼 클릭시 page수 추가하여 요청
 moreBtnEl.addEventListener('click', async() => {
   page++;
   console.log(page);
