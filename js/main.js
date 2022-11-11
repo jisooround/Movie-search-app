@@ -8,18 +8,26 @@ const spans = document.querySelectorAll('span');
 const sections = document.getElementsByClassName('section');
 const introTop = sections[0].offsetTop;
 const mainTop = sections[1].offsetTop;
+const detailTop = sections[2].offsetTop;
+// const detailEl = document.getElementsByClassName('group__infodiv__detail');
 let page = 1;
 
 // 스크롤 이벤트
 spans[0].onclick = function() {
-  window.scroll({top:mainTop, behavior: 'smooth'});
-}
-spans[1].onclick = function() {
   window.scroll({top:introTop, behavior: 'smooth'});
 }
-spans[2].onclick = function() {
+spans[1].onclick = function() {
   window.scroll({top:mainTop, behavior: 'smooth'});
 }
+spans[2].onclick = function() {
+  window.scroll({top: document.body.scrollHeight, left: 0, behavior: 'smooth'});
+}
+spans[3].onclick = function() {
+  window.scroll({top:mainTop, behavior: 'smooth'});
+}
+// spans[4].onclick = function() {
+//   window.scroll({top:detailTop, behavior: 'smooth'});
+// }
 
 // 영화 검색 결과 불러오기
 async function getMovies(title = '', page = 1, year = '') {
@@ -97,3 +105,9 @@ moreBtnEl.addEventListener('click', async() => {
     console.log(error);
   }
 })
+
+// // detail 버튼 클릭 시 detail 페이지로 스크롤 이동
+// detailEl.addEventListener('click', sayHello)
+// function sayHello(){
+//   console.log('hello');
+// };
