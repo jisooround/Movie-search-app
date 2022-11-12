@@ -8,7 +8,6 @@ const spans = document.querySelectorAll('span');
 const sections = document.getElementsByClassName('section');
 const introTop = sections[0].offsetTop;
 const mainTop = sections[1].offsetTop;
-const detailTop = sections[2].offsetTop;
 // const detailEl = document.getElementsByClassName('group__infodiv__detail');
 let page = 1;
 
@@ -25,9 +24,6 @@ spans[2].onclick = function() {
 spans[3].onclick = function() {
   window.scroll({top:mainTop, behavior: 'smooth'});
 }
-// spans[4].onclick = function() {
-//   window.scroll({top:detailTop, behavior: 'smooth'});
-// }
 
 // 영화 검색 결과 불러오기
 async function getMovies(title = '', page = 1, year = '') {
@@ -46,6 +42,7 @@ async function getMovies(title = '', page = 1, year = '') {
         })
     })
 };
+
 
 // 남은 결과가 있을 때 버튼 노출
 function renderMoreBtn(totalResults) {
@@ -104,10 +101,4 @@ moreBtnEl.addEventListener('click', async() => {
   } catch (error) {
     console.log(error);
   }
-})
-
-// // detail 버튼 클릭 시 detail 페이지로 스크롤 이동
-// detailEl.addEventListener('click', sayHello)
-// function sayHello(){
-//   console.log('hello');
-// };
+});

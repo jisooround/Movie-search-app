@@ -1,3 +1,5 @@
+import detailPage from "./detail";
+
 export default function renderMovies(movies) {
   for(let movie of movies){
     const movieEl = document.createElement('div');
@@ -7,8 +9,8 @@ export default function renderMovies(movies) {
     const titleEl = document.createElement('h4');
     const yearEl = document.createElement('p');
     const detailEl = document.createElement('div');
-    const sections = document.getElementsByClassName('section');
-    const detailTop = sections[2].offsetTop;
+    // const bgEl = document.getElementById('detail-bg');
+
     movieEl.className = 'group';
     imgDivEl.className = 'group__imgdiv';
     infoDivEl.className = 'group__infodiv';
@@ -16,11 +18,6 @@ export default function renderMovies(movies) {
     yearEl.className = 'group__infodiv__year';
     detailEl.className = 'group__infodiv__detail'
     detailEl.innerText = '+'
-
-    detailEl.addEventListener('click', () => {
-      console.log('hello');
-      window.scroll({top: document.body.scrollHeight, left: 0, behavior: 'smooth'});
-    });
 
     imgEl.src = `${movie.Poster}`;
     titleEl.innerText = `${movie.Title}`;
