@@ -7,10 +7,8 @@
   <title>CINEME BOX - movie search</title>
   <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=BioRhyme:wght@200;300;400;700&display=swap" rel="stylesheet">
-  <!-- GOOGLE ICONS  -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=BioRhyme:wght@200;300;400;700&family=Hahmlet&display=swap" rel="stylesheet">
   <!-- CSS -->
   <link rel="stylesheet" href="/scss/main.scss" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
@@ -66,6 +64,9 @@
   </div>
 <div class="movie-container">
   <div class="item" id="movieFeed">
+  <div class="image">
+    <div class="loader">Loading...</div>
+  </div>
   </div>
   <div class="more">
     <button class="more-btn" id="more-btn">More</button>
@@ -74,7 +75,42 @@
  </div>
  <!-- DETAIL SECTION -->
  <div class="detail section" id="detail">
-  <div class="container"></div>
+  <p class="message">
+    If you want more information about the movie,<br />
+    please press the button under the movie.
+    </p>
+  <div class="container" id="detail-container">
+    <div class="img-wrap" id="img-wrap">
+      <img src="" alt="" id ="detail-img">
+    </div>
+    <div class="info-wrap">
+      <div class="title-wrap">
+        <h3 class="title" id="detail-title"></h3>
+        <p class="released" id="detail-released"></p>
+        <p class="plot" id="detail-plot"></p>
+      </div>
+      <div class="etc-wrap">
+        <div class="ratings">
+          <p class="ratings-title">Ratings</p>
+          <div class="ratings-info" id="ratings-info">
+          </div>
+        </div>
+        <div class="actors">
+          <p class="actors-title">Actors</p>
+          <p class="actors-info" id="actors"></p>
+        </div>
+        <div class="director">
+          <p class="director-title">Director</p>
+          <p class="director-info" id="director"></p>
+        </div>
+        <div class="genre">
+          <p class="genre-title">Genre</p>
+          <p class="genre-info" id="genre"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-bg" id="detail-bg"></div>
  </div>
 </body>
 </html>
