@@ -1,0 +1,299 @@
+body {
+  background-color: #FEFFD4;
+  font-family: 'BioRhyme' ,'Arvo', serif;
+}
+img {
+  display: block;
+}
+
+.header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 80px;
+  background-color: #000;
+  border-bottom: 1px solid #FEFFD4;
+  display: flex;
+  align-content: center;
+  .container {
+    display: flex;
+    padding: 0 80px;
+    height: 100%;
+    .logo {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: #FEFFD4;
+      font-size: 25px;
+      text-decoration: none;
+      font-family: 'BioRhyme' ,'Arvo', serif;
+      margin-right: 10px;
+      text-align: center;
+    }
+    .nav {
+      color: #FEFFD4;
+      display: flex;
+      align-items: center;
+      &__search, &__about{
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        width: 95px;
+        height: 35px;
+        border: 1px solid #FEFFD4;
+        border-radius: 20px;
+        margin-left:20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      &__search:hover, &__about:hover{
+        background-color: #FEFFD4;
+        color: #000;
+      }
+    } 
+  }
+}
+
+.intro {
+  .container {
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .title {
+      padding-top: 180px;
+      font-size: 100px;
+      line-height: -1;
+      color: #FEFFD4;
+      text-align: center;
+      font-family: 'BioRhyme' ,'Arvo', serif;
+    }
+    .desc {
+      width: 100%;
+      text-align: center;
+      padding-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #FEFFD4;
+      font-family: 'BioRhyme' ,'Arvo', serif;
+    }
+    .arrow {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      padding-top: 100px;
+      padding-bottom: 30px;
+      align-content: flex-end;
+      &__btn {
+        width: 250px;
+        height: 180px;
+        border-radius: 90px;
+        border: 2px solid #FEFFD4;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      &__btn:hover {
+        background-color: #FEFFD4;
+        img {
+          filter: invert(100%);
+        }
+      }
+    }
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  min-height: 100vh;
+  .search-container {
+    width: 90%;
+    padding-top: 135px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    .title {
+      margin-left: 20px;
+      font-size: 32px;
+      font-family: 'BioRhyme' ,'Arvo', serif;
+      padding-top: 8px;
+    }
+    .search-wrap {
+      display: flex;
+      .count-select {
+        -webkit-appearance:none;
+        width: 100px;
+        height: 50px;
+        font-size: 16px;
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        color: #000;
+        margin-right: 10px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        background-color: transparent;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        border: 3px solid #000;
+        background: url('https://freepikpsd.com/media/2019/10/down-arrow-icon-png-7-Transparent-Images.png') calc(100% - 5px) center no-repeat;
+        background-size: 10px;
+        ::after {
+          font-family: 'Material Icons';
+          content: "expand_more";
+        }
+        .count-option {
+          background-color: #FEFFD4;
+        }
+      }
+      .search-input {
+        width: 250px;
+        height: 50px;
+        font-size: 16px;
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        color: #000;
+        padding-left: 10px;
+        box-sizing: border-box;
+        background-color: transparent;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        border: 3px solid #000;
+      }
+      .search-btn {
+        width: 130px;
+        height: 50px;
+        border-radius: 0;
+        background-color: #000;
+        color: #FEFFD4;
+        font-size: 20px;
+        outline: none;
+        box-shadow: none;
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        border: none;
+        margin-right: 20px;
+        padding: 0 20px;
+        cursor: pointer;
+      }
+    }
+  }
+ .movie-container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .item {
+      width: 100%;
+      align-items: flex-start;
+      margin-top: 150px;
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      .group {
+        padding: 0px 20px 50px 20px;
+        display: flex;
+        width: 16.666667%;
+        min-width: 16.666667%;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        position: relative;
+        // border-bottom: 3px solid black;
+        // flex-grow: 0;
+        &__imgdiv {
+          --size: 100%;
+          width: var(--size);
+          max-height: calc(var(--size) * 3 / 2);
+          overflow: hidden;
+          padding-top: 20px;
+          img {
+            width: 100%;
+            height: auto;
+            display: block;
+            }
+          }
+        &__infodiv {
+          padding-top: 10px;
+          &__title {
+            flex: 0 0 100%;
+            text-align: left;
+            padding-top: 10px;
+            color: #000;
+            font-family: 'BioRhyme' ,'Arvo', serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+          }
+          &__year {
+            padding-top: 3px;
+            font-family: 'BioRhyme' ,'Arvo', serif;
+            font-size: 14px;
+          }
+          &__detail {
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            background-color: #000;
+            border-radius: 30px;
+            margin-top: 15px;
+            padding-left: 7.5px;
+            box-sizing: border-box;
+            color: #FEFFD4;
+            font-family: 'BioRhyme' ,'Arvo', serif;
+            cursor: pointer;
+            &:hover{
+              width: 85px;
+              transition: .4s;
+              &::after {
+                content: 'detail';
+                transition: .3s;
+                padding-left: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .more {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 100px;
+      display: flex;
+      justify-content: center;
+      .more-btn {
+        display: none;
+        margin: auto;
+        width: 100px;
+        height: 50px;
+        background-color: #000;
+        color: #FEFFD4;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        font-family: 'BioRhyme' ,'Arvo', serif;
+        font-size: 14px;
+        cursor: pointer;
+        &.active {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.detail {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  // .container{
+
+  // }
+}
