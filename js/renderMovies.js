@@ -1,16 +1,14 @@
-import detailPage from "./detail";
+import detailPage from "./movieDetail.js";
 
 export default function renderMovies(movies) {
   for(let movie of movies){
     const movieEl = document.createElement('div');
     const imgDivEl = document.createElement('div');
-    const imgEl = document.createElement('img');
     const infoDivEl = document.createElement('div');
     const titleEl = document.createElement('h4');
     const yearEl = document.createElement('p');
     const detailEl = document.createElement('div');
-    // const bgEl = document.getElementById('detail-bg');
-
+    
     movieEl.className = 'group';
     imgDivEl.className = 'group__imgdiv';
     infoDivEl.className = 'group__infodiv';
@@ -19,7 +17,7 @@ export default function renderMovies(movies) {
     detailEl.className = 'group__infodiv__detail'
     detailEl.innerText = '+'
 
-    imgEl.src = `${movie.Poster}`;
+    imgDivEl.style.backgroundImage = `url(${movie.Poster})`;
     titleEl.innerText = `${movie.Title}`;
     yearEl.innerText = `${movie.Year}`;
 
@@ -27,7 +25,13 @@ export default function renderMovies(movies) {
       imgEl.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
     };
 
-    imgDivEl.appendChild(imgEl);
+    // detail 버튼 클릭 시 detail 정보 불러오기
+    detailEl.addEventListener('click', () => {
+      detailPage(movie);
+      document.querySelector('#detail-container').classList.add('display');
+      document.querySelector('.message').classList.add('none');
+    })
+
     infoDivEl.appendChild(titleEl);
     infoDivEl.appendChild(yearEl);
     infoDivEl.appendChild(detailEl);

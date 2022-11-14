@@ -8,7 +8,6 @@ const spans = document.querySelectorAll('span');
 const sections = document.getElementsByClassName('section');
 const introTop = sections[0].offsetTop;
 const mainTop = sections[1].offsetTop;
-// const detailEl = document.getElementsByClassName('group__infodiv__detail');
 let page = 1;
 
 // 스크롤 이벤트
@@ -43,7 +42,6 @@ async function getMovies(title = '', page = 1, year = '') {
     })
 };
 
-
 // 남은 결과가 있을 때 버튼 노출
 function renderMoreBtn(totalResults) {
   const total = Math.ceil(Number(totalResults) / 10)
@@ -52,9 +50,9 @@ function renderMoreBtn(totalResults) {
   } else {
     moreBtnEl.classList.remove('active')
   }
-}
+};
 
-// search 버튼 클릭 시 input의 value가 api {t}로 전송
+// 최초 검색
 buttonEl.addEventListener('click', searchMoviesFirst);
 async function searchMoviesFirst() {
   movieFeed.innerHTML = '';
@@ -102,3 +100,4 @@ moreBtnEl.addEventListener('click', async() => {
     console.log(error);
   }
 });
+
