@@ -1,10 +1,10 @@
-import getMovieDetail from "./getMovieDetail.js";
+import getDetail from "./getDetail.js";
 import renderDetail from "./renderDetail.js";
 
-export default async function movieDetail(movie) {
+export default async function detail(movie) {
         const id = movie.imdbID;
           try {
-            const details = await getMovieDetail(id);
+            const details = await getDetail(id);
             console.log(details);
             console.log('detail : '+id);
             renderDetail(details);

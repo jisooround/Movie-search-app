@@ -1,19 +1,18 @@
-import detailPage from "./movieDetail.js";
+import detail from "./detail.js";
 
 export default function renderMovies(movies) {
   for(let movie of movies){
     const movieEl = document.createElement('div');
-    const imgDivEl = document.createElement('div');
-    const infoDivEl = document.createElement('div');
-    const titleEl = document.createElement('h4');
-    const yearEl = document.createElement('p');
-    const detailEl = document.createElement('div');
-    
     movieEl.className = 'group';
+    const imgDivEl = document.createElement('div');
     imgDivEl.className = 'group__imgdiv';
+    const infoDivEl = document.createElement('div');
     infoDivEl.className = 'group__infodiv';
+    const titleEl = document.createElement('h4');
     titleEl.className = 'group__infodiv__title';
+    const yearEl = document.createElement('p');
     yearEl.className = 'group__infodiv__year';
+    const detailEl = document.createElement('div');
     detailEl.className = 'group__infodiv__detail'
     detailEl.innerText = '+'
 
@@ -27,7 +26,7 @@ export default function renderMovies(movies) {
 
     // detail 버튼 클릭 시 detail 정보 불러오기
     detailEl.addEventListener('click', () => {
-      detailPage(movie);
+      detail(movie);
       document.querySelector('#detail-container').classList.add('display');
       document.querySelector('.message').classList.add('none');
     })
