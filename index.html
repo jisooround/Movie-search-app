@@ -23,9 +23,9 @@
  <!-- HEADER -->
  <header class="header">
   <div class="container">
-    <a href="#" class="logo">
+    <span href="#" class="logo">
       CINEMA BOX.
-    </a>
+    </span>
     <div class="nav">
       <span class="nav__about">Intro.</span>
       <span class="nav__search">Search.</span>
@@ -37,6 +37,10 @@
  <div class="intro section">
   <div class="container">
     <h1 class="title">CINEMA BOX</h1>
+    <div class="sub-title">
+      <p class="left">Movie Search App</p>
+      <p class="right">Movie Search App</p>
+    </div>
     <p class="desc">The OMDb API is a RESTful web service to obtain movie information,
       <br/>all content and images on the site are contributed and maintained by our users.
       <br/>If you find this service useful, please consider making a one-time donation or become a patron.
@@ -53,8 +57,13 @@
   <div class="search-container" id="searchGroup">
     <h3 class="title">Search for the movie.</h3>
     <div class="search-wrap">
+      <select class="type-select" id="type-select">
+        <option class="type-option" value="movie" selected="selected">Movie</option>
+        <option class="type-option" value="series">Series</option>
+        <option class="type-option" value="episode">Episode</option>
+      </select>
       <select class="count-select" id="count-select">
-        <option class="count-option" value="1" selected="selected">10</option>
+        <option class="count-option" value="1">10</option>
         <option class="count-option" value="2">20</option>
         <option class="count-option" value="3">30</option>
       </select>
@@ -63,10 +72,18 @@
     </div>
   </div>
 <div class="movie-container">
-  <div class="item" id="movieFeed">
-  <div class="image">
-    <div class="loader">Loading...</div>
+  <div class="search-message" id="search-message">
+    <img src="./images/search.png" alt="" />
+    <h4>Please enter the title<br/>
+      of the video you want to search.</h4>
   </div>
+  <div class="error" id="error">
+    <img src="./images/no-result.png" alt="" />
+    <h4>No Results</h4>
+    <p>Search result not found in OMDb API or<br/>
+      please write at least 3 characters of search term.</p>
+  </div>
+  <div class="item" id="movieFeed">
   </div>
   <div class="more">
     <button class="more-btn" id="more-btn">More</button>
@@ -76,8 +93,8 @@
  <!-- DETAIL SECTION -->
  <div class="detail section" id="detail">
   <p class="message">
-    If you want more information about the movie,<br />
-    please press the button under the movie.
+    If you want more information about the movie,<br/>
+    click the button below the movie.
     </p>
   <div class="container" id="detail-container">
     <div class="img-wrap" id="img-wrap">
