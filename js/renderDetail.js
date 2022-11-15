@@ -32,7 +32,7 @@ export default function renderDetail(details) {
     ratingsInfo.append(ratingEl);
   }
 
-  // 제공된 평점이 없을 경우 결과 없음 메세지
+  // 제공된 평점이 없을 경우 '결과 없음' 메세지
   if(details.Ratings.length === 0){
     resultEl.innerHTML = 'No rating results provided.';
 

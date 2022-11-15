@@ -12,6 +12,7 @@ const introTop = sections[0].offsetTop;
 const mainTop = sections[1].offsetTop;
 const errorEl = document.getElementById('error');
 const searchMessageEl = document.getElementById('search-message');
+const totalMessage = document.getElementById('total-message')
 let page = 1;
 yearList();
 
@@ -47,16 +48,17 @@ async function searchMoviesFirst() {
   const title = inputEl.value;
   
   // 콘솔 확인
-  console.log(title);
-  console.log(type);
-  console.log(year);
+  // console.log(title);
+  // console.log(type);
+  // console.log(year);
 
   for(let i = 1; i <= page; i++){
     try {
       const { Search: movies, totalResults } = await getMovies(title, i, type, year);
-      const total = Math.ceil(Number(totalResults) / 10)
-      renderMovies(movies)
-      renderMoreBtn(totalResults)
+      const total = Math.ceil(Number(totalResults) / 10);
+      renderMovies(movies);
+      renderMoreBtn(totalResults);
+      totalMessage.classList.add('none');
       errorEl.classList.remove('display');
       // 콘솔 확인
       // console.log(total);
@@ -64,12 +66,14 @@ async function searchMoviesFirst() {
 
       // 결과가 요청하는 페이지보다 작다면 break
       if(total < page) {
+        totalMessage.classList.remove('none');
+        totalMessage.textContent = `💬 The search results are  ${totalResults}.`;
         break;
       }
     } catch (error) {
       moreBtnEl.classList.remove('active');
       errorEl.classList.add('display');
-      console.log(error);
+      // console.log(error);
     }
   }
   return page;
@@ -85,14 +89,16 @@ function searchEnter(event){
 // 더보기 버튼 클릭시 page수 추가하여 요청
 moreBtnEl.addEventListener('click', async() => {
   page++;
-  console.log(page);
   const title = inputEl.value;
-  console.log(title);
+  // 콘솔 확인
+  // console.log(page);
+  // console.log(title);
   try {
     const { Search: movies, totalResults } = await getMovies(title, page);
     renderMovies(movies);
     renderMoreBtn(totalResults);
-    console.log(movies);
+    // 콘솔 확인
+    // console.log(movies);
   } catch (error) {
     console.log(error);
   }
@@ -117,9 +123,9 @@ function yearList() {
     yearLiEl.classList.add('year-option');
     yearLiEl.innerText = i;
     yearLiEl.value = `${i}`;
+    yearEl.appendChild(yearLiEl);
     // 콘솔 확인
     // console.log(yearLiEl.innerHTML);
     // console.log(yearLiEl.value);
-    yearEl.appendChild(yearLiEl);
   }
 };

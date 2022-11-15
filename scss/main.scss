@@ -260,6 +260,17 @@ img {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    .total-message {
+      width: 100%;
+      font-size: 22px;
+      font-family: 'BioRhyme' ,'Arvo', serif;
+      text-align: right;
+      padding-top: 40px;
+      margin-right: 20px;
+      &.none {
+        display: none;
+      }
+    }
     .search-message {
       display: flex;
       margin-top: 180px;
@@ -316,7 +327,7 @@ img {
     .item {
       width: 100%;
       align-items: flex-start;
-      margin-top: 150px;
+      margin-top: 90px;
       box-sizing: border-box;
       display: flex;
       flex-wrap: wrap;

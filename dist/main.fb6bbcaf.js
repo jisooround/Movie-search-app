@@ -204,7 +204,7 @@ function renderDetail(details) {
     ratingsInfo.append(ratingEl);
   }
 
-  // 제공된 평점이 없을 경우 결과 없음 메세지
+  // 제공된 평점이 없을 경우 '결과 없음' 메세지
   if (details.Ratings.length === 0) {
     resultEl.innerHTML = 'No rating results provided.';
     ratingEl.append(resultEl);
@@ -404,6 +404,7 @@ var introTop = sections[0].offsetTop;
 var mainTop = sections[1].offsetTop;
 var errorEl = document.getElementById('error');
 var searchMessageEl = document.getElementById('search-message');
+var totalMessage = document.getElementById('total-message');
 var page = 1;
 yearList();
 
@@ -460,25 +461,26 @@ function _searchMoviesFirst() {
             countEl = document.getElementById('count-select');
             page = countEl.options[countEl.selectedIndex].value;
             title = inputEl.value; // 콘솔 확인
-            console.log(title);
-            console.log(type);
-            console.log(year);
+            // console.log(title);
+            // console.log(type);
+            // console.log(year);
             i = 1;
-          case 12:
+          case 9:
             if (!(i <= page)) {
-              _context2.next = 35;
+              _context2.next = 34;
               break;
             }
-            _context2.prev = 13;
-            _context2.next = 16;
+            _context2.prev = 10;
+            _context2.next = 13;
             return (0, _getMovies.default)(title, i, type, year);
-          case 16:
+          case 13:
             _yield$getMovies2 = _context2.sent;
             movies = _yield$getMovies2.Search;
             totalResults = _yield$getMovies2.totalResults;
             total = Math.ceil(Number(totalResults) / 10);
             (0, _renderMovies.default)(movies);
             renderMoreBtn(totalResults);
+            totalMessage.classList.add('none');
             errorEl.classList.remove('display');
             // 콘솔 확인
             // console.log(total);
@@ -489,28 +491,30 @@ function _searchMoviesFirst() {
               _context2.next = 25;
               break;
             }
-            return _context2.abrupt("break", 35);
+            totalMessage.classList.remove('none');
+            totalMessage.textContent = "\uD83D\uDCAC The search results are  ".concat(totalResults, ".");
+            return _context2.abrupt("break", 34);
           case 25:
-            _context2.next = 32;
+            _context2.next = 31;
             break;
           case 27:
             _context2.prev = 27;
-            _context2.t0 = _context2["catch"](13);
+            _context2.t0 = _context2["catch"](10);
             moreBtnEl.classList.remove('active');
             errorEl.classList.add('display');
-            console.log(_context2.t0);
-          case 32:
+            // console.log(error);
+          case 31:
             i++;
-            _context2.next = 12;
+            _context2.next = 9;
             break;
-          case 35:
+          case 34:
             return _context2.abrupt("return", page);
-          case 36:
+          case 35:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[13, 27]]);
+    }, _callee2, null, [[10, 27]]);
   }));
   return _searchMoviesFirst.apply(this, arguments);
 }
@@ -531,31 +535,32 @@ moreBtnEl.addEventListener('click', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*
       switch (_context.prev = _context.next) {
         case 0:
           page++;
-          console.log(page);
-          title = inputEl.value;
-          console.log(title);
-          _context.prev = 4;
-          _context.next = 7;
+          title = inputEl.value; // 콘솔 확인
+          // console.log(page);
+          // console.log(title);
+          _context.prev = 2;
+          _context.next = 5;
           return (0, _getMovies.default)(title, page);
-        case 7:
+        case 5:
           _yield$getMovies = _context.sent;
           movies = _yield$getMovies.Search;
           totalResults = _yield$getMovies.totalResults;
           (0, _renderMovies.default)(movies);
           renderMoreBtn(totalResults);
-          console.log(movies);
-          _context.next = 18;
+          // 콘솔 확인
+          // console.log(movies);
+          _context.next = 15;
           break;
-        case 15:
-          _context.prev = 15;
-          _context.t0 = _context["catch"](4);
+        case 12:
+          _context.prev = 12;
+          _context.t0 = _context["catch"](2);
           console.log(_context.t0);
-        case 18:
+        case 15:
         case "end":
           return _context.stop();
       }
     }
-  }, _callee, null, [[4, 15]]);
+  }, _callee, null, [[2, 12]]);
 })));
 
 // 남은 결과가 있을 때 버튼 노출
@@ -578,12 +583,13 @@ function yearList() {
     yearLiEl.classList.add('year-option');
     yearLiEl.innerText = i;
     yearLiEl.value = "".concat(i);
+    yearEl.appendChild(yearLiEl);
     // 콘솔 확인
     // console.log(yearLiEl.innerHTML);
     // console.log(yearLiEl.value);
-    yearEl.appendChild(yearLiEl);
   }
 }
+
 ;
 },{"./renderMovies.js":"js/renderMovies.js","./getMovies.js":"js/getMovies.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -610,7 +616,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65236" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53159" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

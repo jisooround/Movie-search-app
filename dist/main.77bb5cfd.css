@@ -261,6 +261,17 @@ img {
   justify-content: center;
   flex-wrap: wrap;
 }
+.main .movie-container .total-message {
+  width: 100%;
+  font-size: 22px;
+  font-family: "BioRhyme", "Arvo", serif;
+  text-align: right;
+  padding-top: 40px;
+  margin-right: 20px;
+}
+.main .movie-container .total-message.none {
+  display: none;
+}
 .main .movie-container .search-message {
   display: flex;
   margin-top: 180px;
@@ -317,7 +328,7 @@ img {
 .main .movie-container .item {
   width: 100%;
   align-items: flex-start;
-  margin-top: 150px;
+  margin-top: 90px;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
