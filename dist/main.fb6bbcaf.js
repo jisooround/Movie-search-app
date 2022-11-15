@@ -181,6 +181,12 @@ function renderDetail(details) {
   document.getElementById('actors').innerText = "".concat(details.Actors);
   document.getElementById('director').innerText = "".concat(details.Director);
   document.getElementById('genre').innerText = "".concat(details.Genre);
+  posterEl.style.backgroundImage = "url(".concat(details.Poster, ")");
+  bgEl.style.backgroundImage = "url(".concat(details.Poster, ")");
+  if ("".concat(details.Poster) === "N/A") {
+    posterEl.style.backgroundImage = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png)";
+  }
+  ;
   var ratingsInfo = document.getElementById('ratings-info');
   ratingsInfo.innerHTML = '';
 
@@ -197,8 +203,6 @@ function renderDetail(details) {
     ratingEl.append(logoEl, resultEl);
     ratingsInfo.append(ratingEl);
   }
-  posterEl.style.backgroundImage = "url(".concat(details.Poster, ")");
-  bgEl.style.backgroundImage = "url(".concat(details.Poster, ")");
   window.scroll({
     top: document.body.scrollHeight,
     left: 0,
@@ -237,21 +241,21 @@ function _detail() {
           case 4:
             details = _context.sent;
             // 콘솔 확인
-            // console.log(details);
-            // console.log('detail : '+id);
+            console.log(details);
+            console.log('detail : ' + id);
             (0, _renderDetail.default)(details);
-            _context.next = 11;
+            _context.next = 13;
             break;
-          case 8:
-            _context.prev = 8;
+          case 10:
+            _context.prev = 10;
             _context.t0 = _context["catch"](1);
             console.log(_context.t0);
-          case 11:
+          case 13:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 8]]);
+    }, _callee, null, [[1, 10]]);
   }));
   return _detail.apply(this, arguments);
 }
@@ -291,9 +295,12 @@ function renderMovies(movies) {
       titleEl.innerText = "".concat(movie.Title);
       yearEl.innerText = "".concat(movie.Year);
       if ("".concat(movie.Poster) === "N/A") {
-        imgEl.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
+        imgDivEl.style.backgroundImage = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png)";
       }
       ;
+
+      // const errorEl = document.getElementById('error');
+      // errorEl.classList.remove('display');
 
       // detail 버튼 클릭 시 detail 정보 불러오기
       detailEl.addEventListener('click', function () {
@@ -434,7 +441,7 @@ function searchMoviesFirst() {
 }
 function _searchMoviesFirst() {
   _searchMoviesFirst = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var typeEl, type, countEl, title, i, _yield$getMovies2, movies, totalResults;
+    var typeEl, type, countEl, title, i, total, _yield$getMovies2, movies, totalResults;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
@@ -451,39 +458,52 @@ function _searchMoviesFirst() {
             i = 1;
           case 8:
             if (!(i <= page)) {
-              _context2.next = 27;
+              _context2.next = 31;
               break;
             }
             _context2.prev = 9;
-            _context2.next = 12;
+            total = Math.ceil(Number(totalResults) / 10);
+            _context2.next = 13;
             return (0, _getMovies.default)(title, i, type);
-          case 12:
+          case 13:
             _yield$getMovies2 = _context2.sent;
             movies = _yield$getMovies2.Search;
             totalResults = _yield$getMovies2.totalResults;
             (0, _renderMovies.default)(movies);
             renderMoreBtn(totalResults);
             errorEl.classList.remove('display');
-            _context2.next = 24;
+
+            // 콘솔 확인
+            // console.log(total);
+            // console.log(totalResults);
+
+            // 결과가 요청하는 페이지보다 작다면 break
+            if (!(total < page)) {
+              _context2.next = 21;
+              break;
+            }
+            return _context2.abrupt("break", 31);
+          case 21:
+            _context2.next = 28;
             break;
-          case 20:
-            _context2.prev = 20;
+          case 23:
+            _context2.prev = 23;
             _context2.t0 = _context2["catch"](9);
             moreBtnEl.classList.remove('active');
             errorEl.classList.add('display');
-            // console.log(error);
-          case 24:
+            console.log(_context2.t0);
+          case 28:
             i++;
             _context2.next = 8;
             break;
-          case 27:
+          case 31:
             return _context2.abrupt("return", page);
-          case 28:
+          case 32:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[9, 20]]);
+    }, _callee2, null, [[9, 23]]);
   }));
   return _searchMoviesFirst.apply(this, arguments);
 }
@@ -566,7 +586,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61880" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57822" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

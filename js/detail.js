@@ -6,8 +6,8 @@ export default async function detail(movie) {
           try {
             const details = await getDetail(id);
             // 콘솔 확인
-            // console.log(details);
-            // console.log('detail : '+id);
+            console.log(details);
+            console.log('detail : '+id);
             renderDetail(details);
           } catch (error) {
             console.log(error)

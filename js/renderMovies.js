@@ -21,8 +21,11 @@ export default function renderMovies(movies) {
     yearEl.innerText = `${movie.Year}`;
 
     if(`${movie.Poster}` === "N/A"){
-      imgEl.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
+      imgDivEl.style.backgroundImage = `url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png)`
     };
+
+    // const errorEl = document.getElementById('error');
+    // errorEl.classList.remove('display');
 
     // detail 버튼 클릭 시 detail 정보 불러오기
     detailEl.addEventListener('click', () => {
