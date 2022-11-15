@@ -43,15 +43,16 @@ async function searchMoviesFirst() {
   page = (countEl.options[countEl.selectedIndex].value);
 
   const title = inputEl.value;
-  console.log(title);
-  console.log(type);
+  
+  // 콘솔 확인
+  // console.log(title);
+  // console.log(type);
 
   for(let i = 1; i <= page; i++){
     try {
       const { Search: movies, totalResults } = await getMovies(title, i, type);
       renderMovies(movies)
       renderMoreBtn(totalResults)
-      console.log(movies);
     } catch (error) {
       moreBtnEl.classList.remove('active');
       errorEl.classList.add('display');
