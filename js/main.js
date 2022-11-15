@@ -1,6 +1,7 @@
 import renderMovies from "./renderMovies.js";
 import getMovies from "./getMovies.js";
 
+const yearEl = document.getElementById('year-select');
 const inputEl = document.getElementById('search-input');
 const buttonEl = document.getElementById('search-btn');
 const moreBtnEl = document.getElementById('more-btn');
@@ -12,6 +13,7 @@ const mainTop = sections[1].offsetTop;
 const errorEl = document.getElementById('error');
 const searchMessageEl = document.getElementById('search-message');
 let page = 1;
+yearList();
 
 // 스크롤 이벤트
 spans[0].onclick = function() {
@@ -36,6 +38,7 @@ async function searchMoviesFirst() {
   movieFeed.innerHTML = '';
   searchMessageEl.classList.add('none');
   
+  const year = (yearEl.options[yearEl.selectedIndex].value);
   const typeEl = document.getElementById('type-select');
   const type = (typeEl.options[typeEl.selectedIndex].value);
   const countEl = document.getElementById('count-select');
@@ -44,17 +47,17 @@ async function searchMoviesFirst() {
   const title = inputEl.value;
   
   // 콘솔 확인
-  // console.log(title);
-  // console.log(type);
+  console.log(title);
+  console.log(type);
+  console.log(year);
 
   for(let i = 1; i <= page; i++){
     try {
+      const { Search: movies, totalResults } = await getMovies(title, i, type, year);
       const total = Math.ceil(Number(totalResults) / 10)
-      const { Search: movies, totalResults } = await getMovies(title, i, type);
       renderMovies(movies)
       renderMoreBtn(totalResults)
       errorEl.classList.remove('display');
-
       // 콘솔 확인
       // console.log(total);
       // console.log(totalResults);
@@ -87,8 +90,8 @@ moreBtnEl.addEventListener('click', async() => {
   console.log(title);
   try {
     const { Search: movies, totalResults } = await getMovies(title, page);
-    renderMovies(movies)
-    renderMoreBtn(totalResults)
+    renderMovies(movies);
+    renderMoreBtn(totalResults);
     console.log(movies);
   } catch (error) {
     console.log(error);
@@ -97,11 +100,26 @@ moreBtnEl.addEventListener('click', async() => {
 
 // 남은 결과가 있을 때 버튼 노출
 function renderMoreBtn(totalResults) {
-  const total = Math.ceil(Number(totalResults) / 10)
+  const total = Math.ceil(Number(totalResults) / 10);
   if (page < total) {
-    moreBtnEl.classList.add('active')
+    moreBtnEl.classList.add('active');
   } else {
-    moreBtnEl.classList.remove('active')
+    moreBtnEl.classList.remove('active');
   }
 };
 
+// 년도 리스트 생성
+function yearList() {
+  let date = new Date();
+  let currentYear = date.getFullYear();
+  for(let i = currentYear; i >= 1980; i--){
+    const yearLiEl = document.createElement('option');
+    yearLiEl.classList.add('year-option');
+    yearLiEl.innerText = i;
+    yearLiEl.value = `${i}`;
+    // 콘솔 확인
+    // console.log(yearLiEl.innerHTML);
+    // console.log(yearLiEl.value);
+    yearEl.appendChild(yearLiEl);
+  }
+};
