@@ -12,7 +12,7 @@ const introTop = sections[0].offsetTop;
 const mainTop = sections[1].offsetTop;
 const errorEl = document.getElementById('error');
 const searchMessageEl = document.getElementById('search-message');
-const totalMessage = document.getElementById('total-message')
+const totalMessage = document.getElementById('total-message-text')
 let page = 1;
 yearList();
 
@@ -46,7 +46,7 @@ async function searchMoviesFirst() {
   page = (countEl.options[countEl.selectedIndex].value);
 
   const title = inputEl.value;
-  
+  totalMessage.classList.add('none');
   // 콘솔 확인
   // console.log(title);
   // console.log(type);
@@ -58,7 +58,6 @@ async function searchMoviesFirst() {
       const total = Math.ceil(Number(totalResults) / 10);
       renderMovies(movies);
       renderMoreBtn(totalResults);
-      totalMessage.classList.add('none');
       errorEl.classList.remove('display');
       // 콘솔 확인
       // console.log(total);
