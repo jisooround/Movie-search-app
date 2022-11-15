@@ -38,7 +38,6 @@ async function searchMoviesFirst() {
   
   const typeEl = document.getElementById('type-select');
   const type = (typeEl.options[typeEl.selectedIndex].value);
-
   const countEl = document.getElementById('count-select');
   page = (countEl.options[countEl.selectedIndex].value);
 
