@@ -256,12 +256,14 @@ img {
   cursor: pointer;
 }
 .main .movie-container {
+  position: relative;
   width: 90%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 .main .movie-container .total-message {
+  position: absolute;
   width: 100%;
   font-size: 22px;
   font-family: "BioRhyme", "Arvo", serif;
@@ -269,7 +271,14 @@ img {
   padding-top: 40px;
   margin-right: 20px;
 }
-.main .movie-container .total-message.none {
+.main .movie-container .total-message #total-message-text {
+  position: absolute;
+  right: 5px;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #000;
+}
+.main .movie-container .total-message #total-message-text.none {
   display: none;
 }
 .main .movie-container .search-message {
@@ -328,7 +337,7 @@ img {
 .main .movie-container .item {
   width: 100%;
   align-items: flex-start;
-  margin-top: 90px;
+  margin-top: 130px;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;

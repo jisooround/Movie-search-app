@@ -175,12 +175,6 @@ exports.default = renderDetail;
 function renderDetail(details) {
   var bgEl = document.getElementById('detail-bg');
   var posterEl = document.getElementById('img-wrap');
-  var ratingEl = document.createElement('div');
-  ratingEl.className = 'rating';
-  var logoEl = document.createElement('img');
-  logoEl.className = 'logo';
-  var resultEl = document.createElement('p');
-  resultEl.className = 'result';
   document.getElementById('detail-title').innerText = "".concat(details.Title);
   document.getElementById('detail-released').innerText = "".concat(details.Released);
   document.getElementById('detail-plot').innerText = "".concat(details.Plot);
@@ -198,6 +192,12 @@ function renderDetail(details) {
 
   // 평점 제공사와 결과 함께 보여주기
   for (var i = 0; i < details.Ratings.length; i++) {
+    var ratingEl = document.createElement('div');
+    ratingEl.className = 'rating';
+    var logoEl = document.createElement('img');
+    logoEl.className = 'logo';
+    var resultEl = document.createElement('p');
+    resultEl.className = 'result';
     logoEl.src = '/' + "".concat(details.Ratings[i].Source) + '.png';
     resultEl.textContent = "".concat(details.Ratings[i].Value);
     ratingEl.append(logoEl, resultEl);
@@ -206,9 +206,15 @@ function renderDetail(details) {
 
   // 제공된 평점이 없을 경우 '결과 없음' 메세지
   if (details.Ratings.length === 0) {
-    resultEl.innerHTML = 'No rating results provided.';
-    ratingEl.append(resultEl);
-    ratingsInfo.append(ratingEl);
+    var _ratingEl = document.createElement('div');
+    _ratingEl.className = 'rating';
+    var _logoEl = document.createElement('img');
+    _logoEl.className = 'logo';
+    var _resultEl = document.createElement('p');
+    _resultEl.className = 'result';
+    _resultEl.innerHTML = 'No rating results provided.';
+    _ratingEl.append(_resultEl);
+    ratingsInfo.append(_ratingEl);
   }
   window.scroll({
     top: document.body.scrollHeight,
@@ -248,21 +254,21 @@ function _detail() {
           case 4:
             details = _context.sent;
             // 콘솔 확인
-            console.log(details);
-            console.log('detail : ' + id);
+            // console.log(details);
+            // console.log('detail : '+id);
             (0, _renderDetail.default)(details);
-            _context.next = 13;
+            _context.next = 11;
             break;
-          case 10:
-            _context.prev = 10;
+          case 8:
+            _context.prev = 8;
             _context.t0 = _context["catch"](1);
             console.log(_context.t0);
-          case 13:
+          case 11:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 10]]);
+    }, _callee, null, [[1, 8]]);
   }));
   return _detail.apply(this, arguments);
 }
@@ -404,7 +410,7 @@ var introTop = sections[0].offsetTop;
 var mainTop = sections[1].offsetTop;
 var errorEl = document.getElementById('error');
 var searchMessageEl = document.getElementById('search-message');
-var totalMessage = document.getElementById('total-message');
+var totalMessage = document.getElementById('total-message-text');
 var page = 1;
 yearList();
 
@@ -460,27 +466,28 @@ function _searchMoviesFirst() {
             type = typeEl.options[typeEl.selectedIndex].value;
             countEl = document.getElementById('count-select');
             page = countEl.options[countEl.selectedIndex].value;
-            title = inputEl.value; // 콘솔 확인
+            title = inputEl.value;
+            totalMessage.classList.add('none');
+            // 콘솔 확인
             // console.log(title);
             // console.log(type);
             // console.log(year);
             i = 1;
-          case 9:
+          case 10:
             if (!(i <= page)) {
               _context2.next = 34;
               break;
             }
-            _context2.prev = 10;
-            _context2.next = 13;
+            _context2.prev = 11;
+            _context2.next = 14;
             return (0, _getMovies.default)(title, i, type, year);
-          case 13:
+          case 14:
             _yield$getMovies2 = _context2.sent;
             movies = _yield$getMovies2.Search;
             totalResults = _yield$getMovies2.totalResults;
             total = Math.ceil(Number(totalResults) / 10);
             (0, _renderMovies.default)(movies);
             renderMoreBtn(totalResults);
-            totalMessage.classList.add('none');
             errorEl.classList.remove('display');
             // 콘솔 확인
             // console.log(total);
@@ -499,13 +506,13 @@ function _searchMoviesFirst() {
             break;
           case 27:
             _context2.prev = 27;
-            _context2.t0 = _context2["catch"](10);
+            _context2.t0 = _context2["catch"](11);
             moreBtnEl.classList.remove('active');
             errorEl.classList.add('display');
             // console.log(error);
           case 31:
             i++;
-            _context2.next = 9;
+            _context2.next = 10;
             break;
           case 34:
             return _context2.abrupt("return", page);
@@ -514,7 +521,7 @@ function _searchMoviesFirst() {
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[10, 27]]);
+    }, _callee2, null, [[11, 27]]);
   }));
   return _searchMoviesFirst.apply(this, arguments);
 }
@@ -616,7 +623,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53159" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56661" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
