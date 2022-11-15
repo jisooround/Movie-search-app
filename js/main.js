@@ -52,10 +52,11 @@ async function searchMoviesFirst() {
       const { Search: movies, totalResults } = await getMovies(title, i, type);
       renderMovies(movies)
       renderMoreBtn(totalResults)
+      errorEl.classList.remove('display');
     } catch (error) {
       moreBtnEl.classList.remove('active');
       errorEl.classList.add('display');
-      console.log(error);
+      // console.log(error);
     }
   }
   return page;
