@@ -49,14 +49,24 @@ async function searchMoviesFirst() {
 
   for(let i = 1; i <= page; i++){
     try {
+      const total = Math.ceil(Number(totalResults) / 10)
       const { Search: movies, totalResults } = await getMovies(title, i, type);
       renderMovies(movies)
       renderMoreBtn(totalResults)
       errorEl.classList.remove('display');
+
+      // 콘솔 확인
+      // console.log(total);
+      // console.log(totalResults);
+
+      // 결과가 요청하는 페이지보다 작다면 break
+      if(total < page) {
+        break;
+      }
     } catch (error) {
       moreBtnEl.classList.remove('active');
       errorEl.classList.add('display');
-      // console.log(error);
+      console.log(error);
     }
   }
   return page;

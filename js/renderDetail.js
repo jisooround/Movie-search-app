@@ -8,6 +8,13 @@ export default function renderDetail(details) {
   document.getElementById('director').innerText = `${details.Director}`;
   document.getElementById('genre').innerText = `${details.Genre}`;
 
+  posterEl.style.backgroundImage = `url(${details.Poster})`;
+  bgEl.style.backgroundImage = `url(${details.Poster})`;
+  
+  if(`${details.Poster}` === "N/A"){
+    posterEl.style.backgroundImage = `url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png)`
+  };
+
   const ratingsInfo = document.getElementById('ratings-info');
   ratingsInfo.innerHTML ='';
 
@@ -26,7 +33,5 @@ export default function renderDetail(details) {
     ratingsInfo.append(ratingEl);
   }
 
-  posterEl.style.backgroundImage = `url(${details.Poster})`;
-  bgEl.style.backgroundImage = `url(${details.Poster})`;
   window.scroll({top: document.body.scrollHeight, left: 0, behavior: 'smooth'});
 };
