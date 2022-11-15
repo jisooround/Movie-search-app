@@ -166,7 +166,7 @@ img {
 .main .search-container .search-wrap {
   display: flex;
 }
-.main .search-container .search-wrap .type-select {
+.main .search-container .search-wrap .year-select {
   -webkit-appearance: none;
   width: 100px;
   height: 50px;
@@ -183,9 +183,25 @@ img {
   border: 3px solid #000;
   background-size: 10px;
 }
-.main .search-container .search-wrap .type-select ::after {
-  font-family: "Material Icons";
-  content: "expand_more";
+.main .search-container .search-wrap .year-select .year-option {
+  background-color: #FEFFD4;
+}
+.main .search-container .search-wrap .type-select {
+  -webkit-appearance: none;
+  width: 130px;
+  height: 50px;
+  font-size: 16px;
+  font-family: "BioRhyme", "Arvo", serif;
+  color: #000;
+  margin-right: 10px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  border: 3px solid #000;
+  background-size: 10px;
 }
 .main .search-container .search-wrap .type-select .type-option {
   background-color: #FEFFD4;
@@ -206,10 +222,6 @@ img {
   border: none;
   border: 3px solid #000;
   background-size: 10px;
-}
-.main .search-container .search-wrap .count-select ::after {
-  font-family: "Material Icons";
-  content: "expand_more";
 }
 .main .search-container .search-wrap .count-select .count-option {
   background-color: #FEFFD4;
