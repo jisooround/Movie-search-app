@@ -189,6 +189,12 @@ function renderDetail(details) {
   ;
   var ratingsInfo = document.getElementById('ratings-info');
   ratingsInfo.innerHTML = '';
+  function imgHighQuality() {
+    details.Poster.replace('SX300', 'SX700');
+  }
+  ;
+  imgHighQuality();
+  console.log(details.Poster);
 
   // 평점 제공사와 결과 함께 보여주기
   for (var i = 0; i < details.Ratings.length; i++) {
@@ -623,7 +629,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51617" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58046" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

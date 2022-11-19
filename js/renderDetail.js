@@ -17,6 +17,12 @@ export default function renderDetail(details) {
   const ratingsInfo = document.getElementById('ratings-info');
   ratingsInfo.innerHTML ='';
 
+  function imgHighQuality() {
+    details.Poster.replace('SX300', 'SX700');
+  };
+  imgHighQuality();
+  console.log(details.Poster);
+
   // 평점 제공사와 결과 함께 보여주기
   for(let i = 0; i < details.Ratings.length; i++){
     const ratingEl = document.createElement('div');
