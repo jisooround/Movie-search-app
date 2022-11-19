@@ -16,7 +16,11 @@ export default function renderMovies(movies) {
     detailEl.className = 'group__infodiv__detail'
     detailEl.innerText = '+'
 
-    imgDivEl.style.backgroundImage = `url(${movie.Poster})`;
+    // 포스터 이미지 좋은 화질로 바꾸기
+    const imageURL = `${movie.Poster}`;
+    const highQualityMoviePoster = imageURL.replace("SX300", "SX700");
+
+    imgDivEl.style.backgroundImage = `url(${highQualityMoviePoster})`;
     titleEl.innerText = `${movie.Title}`;
     yearEl.innerText = `${movie.Year}`;
 

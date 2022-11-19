@@ -175,26 +175,24 @@ exports.default = renderDetail;
 function renderDetail(details) {
   var bgEl = document.getElementById('detail-bg');
   var posterEl = document.getElementById('img-wrap');
+
+  // 포스터 이미지 좋은 화질로 바꾸기
+  var imageURL = "".concat(details.Poster);
+  var highQualityDetailPoster = imageURL.replace("SX300", "SX700");
   document.getElementById('detail-title').innerText = "".concat(details.Title);
   document.getElementById('detail-released').innerText = "".concat(details.Released);
   document.getElementById('detail-plot').innerText = "".concat(details.Plot);
   document.getElementById('actors').innerText = "".concat(details.Actors);
   document.getElementById('director').innerText = "".concat(details.Director);
   document.getElementById('genre').innerText = "".concat(details.Genre);
-  posterEl.style.backgroundImage = "url(".concat(details.Poster, ")");
-  bgEl.style.backgroundImage = "url(".concat(details.Poster, ")");
+  posterEl.style.backgroundImage = "url(".concat(highQualityDetailPoster, ")");
+  bgEl.style.backgroundImage = "url(".concat(highQualityDetailPoster, ")");
   if ("".concat(details.Poster) === "N/A") {
     posterEl.style.backgroundImage = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png)";
   }
   ;
   var ratingsInfo = document.getElementById('ratings-info');
   ratingsInfo.innerHTML = '';
-  function imgHighQuality() {
-    details.Poster.replace('SX300', 'SX700');
-  }
-  ;
-  imgHighQuality();
-  console.log(details.Poster);
 
   // 평점 제공사와 결과 함께 보여주기
   for (var i = 0; i < details.Ratings.length; i++) {
@@ -204,7 +202,7 @@ function renderDetail(details) {
     logoEl.className = 'logo';
     var resultEl = document.createElement('p');
     resultEl.className = 'result';
-    logoEl.src = '/' + "".concat(details.Ratings[i].Source) + '.png';
+    logoEl.src = '../images/' + "".concat(details.Ratings[i].Source) + '.png';
     resultEl.textContent = "".concat(details.Ratings[i].Value);
     ratingEl.append(logoEl, resultEl);
     ratingsInfo.append(ratingEl);
@@ -310,7 +308,11 @@ function renderMovies(movies) {
       var detailEl = document.createElement('div');
       detailEl.className = 'group__infodiv__detail';
       detailEl.innerText = '+';
-      imgDivEl.style.backgroundImage = "url(".concat(movie.Poster, ")");
+
+      // 포스터 이미지 좋은 화질로 바꾸기
+      var imageURL = "".concat(movie.Poster);
+      var highQualityMoviePoster = imageURL.replace("SX300", "SX700");
+      imgDivEl.style.backgroundImage = "url(".concat(highQualityMoviePoster, ")");
       titleEl.innerText = "".concat(movie.Title);
       yearEl.innerText = "".concat(movie.Year);
       if ("".concat(movie.Poster) === "N/A") {
@@ -629,7 +631,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58046" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59759" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
