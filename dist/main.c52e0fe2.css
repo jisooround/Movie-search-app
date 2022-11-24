@@ -32,7 +32,10 @@ img {
   font-family: "BioRhyme", "Arvo", serif;
   margin-right: 10px;
   text-align: center;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .header .container .nav {
   color: #FEFFD4;
@@ -50,7 +53,10 @@ img {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .header .container .nav__search:hover, .header .container .nav__about:hover {
   background-color: #FEFFD4;
@@ -72,13 +78,19 @@ img {
   color: #FEFFD4;
   text-align: center;
   font-family: "BioRhyme", "Arvo", serif;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .intro .container .sub-title {
   position: absolute;
   width: 100%;
   height: 100vh;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .intro .container .sub-title .left {
   position: absolute;
@@ -89,7 +101,10 @@ img {
   color: #FEFFD4;
   font-family: "BioRhyme", "Arvo", serif;
   rotate: -90deg;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .intro .container .sub-title .right {
   position: absolute;
@@ -100,7 +115,10 @@ img {
   color: #FEFFD4;
   font-family: "BioRhyme", "Arvo", serif;
   rotate: 90deg;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .intro .container .desc {
   width: 100%;
@@ -110,7 +128,10 @@ img {
   line-height: 1.6;
   color: #FEFFD4;
   font-family: "BioRhyme", "Arvo", serif;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .intro .container .arrow {
   width: 100%;
@@ -120,7 +141,10 @@ img {
   padding-top: 100px;
   padding-bottom: 30px;
   align-content: flex-end;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .intro .container .arrow__btn {
   width: 250px;
@@ -139,7 +163,10 @@ img {
 }
 .intro .container .arrow__btn:hover img {
   filter: invert(100%);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .main {
@@ -161,7 +188,10 @@ img {
   font-size: 32px;
   font-family: "BioRhyme", "Arvo", serif;
   padding-top: 8px;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .main .search-container .search-wrap {
   display: flex;
@@ -288,7 +318,10 @@ img {
   justify-content: center;
   flex-wrap: wrap;
   line-height: 1.3;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .main .movie-container .search-message.none {
   display: none;
@@ -316,7 +349,10 @@ img {
   justify-content: center;
   flex-wrap: wrap;
   line-height: 1.1;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .main .movie-container .error img {
   width: 200px;
@@ -449,7 +485,10 @@ img {
   text-align: center;
   display: block;
   line-height: 1.3;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .detail .message.none {
   display: none;
@@ -582,4 +621,4 @@ img {
   height: 100vh;
 }
 
-/*# sourceMappingURL=/main.77bb5cfd.css.map */
+/*# sourceMappingURL=/main.c52e0fe2.css.map */

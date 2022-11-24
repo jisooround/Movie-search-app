@@ -56,3 +56,22 @@ nav바 버튼을 이용하여 원하는 화면으로 쉽고 빠르게 이동하�
 - 모듈화가 잘 되어있는지, 필요없는 모듈이나 모듈화가 필요한 부분은 어디인지
 - DOM을 다루는 부분이 가독성이 떨어지지는 않는지, 개선 방법
 - parcel-bundeler를 사용하였는데 dist 폴더를 어떻게 관리하는지 잘 모르겠습니다. (dist폴더는 git에 올리면 안 된다고 들어서 gitignore에 포함 하였더니 netlify 배포가 되지 않아서 부득이하게 dist 폴더를 업로드하였습니다.)
+
+## 1차 코드 리뷰 후 변경된 내용 (22.11.24 작성)
+- 이미지 리사이징 코드를 추가하여 고화질로 출력 되도록 하였습니다.
+- 스크롤 기능을 모듈화 하였습니다. 
+- 웹 접근성을 위하여 `background-image` 사용한 곳에 부가 정보를 넣어주었습니다.
+```js
+  posterEl.style.backgroundImage = `url(${highQualityDetailPoster})`;
+  posterEl.role = 'img';
+  posterEl.title = 'Poster';
+```
+- html 시맨틱 태그 사용 (html 56번째 줄 리뷰)
+```js
+// 기존
+ <div class="main section">
+ // 변경
+ <main>
+```
+- scss 파일을 css로 변환 후 다시 `<link>` 하였습니다.
+- `<span>`태그를 쿼리 셀렉터로 사용 했던 부분을 클래스 네임을 부여하여 수정하였습니다. (스크롤 부분)

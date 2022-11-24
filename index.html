@@ -13,7 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=BioRhyme:wght@200;300;400;700&family=Hahmlet&display=swap"
     rel="stylesheet">
   <!-- CSS -->
-  <link rel="stylesheet" href="/scss/main.scss" />
+  <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
   <!-- FAVICON -->
   <link rel="FAVICON" href="./favicon.ico">
@@ -27,13 +27,13 @@
   <!-- HEADER -->
   <header class="header">
     <div class="container">
-      <span href="#" class="logo">
+      <div href="#" class="logo scroll">
         CINEMA BOX.
-      </span>
+      </div>
       <div class="nav">
-        <span class="nav__about">Intro.</span>
-        <span class="nav__search">Search.</span>
-        <span class="nav__search">Detail.</span>
+        <div class="nav__about scroll">Intro.</div>
+        <div class="nav__search scroll">Search.</div>
+        <div class="nav__search scroll">Detail.</div>
       </div>
     </div>
   </header>
@@ -49,15 +49,15 @@
         <br />all content and images on the site are contributed and maintained by our users.
         <br />If you find this service useful, please consider making a one-time donation or become a patron.
       </p>
-      <span class="arrow">
+      <div class="arrow scroll">
         <button class="arrow__btn">
           <img src="./images/intro_arrow.svg" alt="">
         </button>
-      </span>
+      </div>
     </div>
   </div>
   <!-- MAIN SECTION -->
-  <div class="main section">
+  <main class="main section">
     <!-- Search-Container -->
     <div class="search-container" id="searchGroup">
       <h3 class="title">Search for the movie.</h3>
@@ -104,14 +104,14 @@
         <button class="more-btn" id="more-btn">More</button>
       </div>
     </div>
-  </div>
+  </ㅡ>
   <!-- DETAIL SECTION -->
   <div class="detail section" id="detail">
     <p class="message">
       If you want more information about the movie,<br />
       click the button below the movie.
     </p>
-    <div class="container" id="detail-container">
+    <div class="detail-container" id="detail-container">
       <div class="img-wrap" id="img-wrap">
         <img id="detail-img">
       </div>

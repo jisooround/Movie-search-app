@@ -1,37 +1,18 @@
 import renderMovies from "./renderMovies.js";
 import getMovies from "./getMovies.js";
+import scroll from "./scroll.js";
 
 const yearEl = document.getElementById('year-select');
 const inputEl = document.getElementById('search-input');
 const buttonEl = document.getElementById('search-btn');
 const moreBtnEl = document.getElementById('more-btn');
 const movieFeed = document.getElementById('movieFeed');
-const spans = document.querySelectorAll('span');
-const sections = document.getElementsByClassName('section');
-const introTop = sections[0].offsetTop;
-const mainTop = sections[1].offsetTop;
 const errorEl = document.getElementById('error');
 const searchMessageEl = document.getElementById('search-message');
 const totalMessage = document.getElementById('total-message-text')
 let page = 1;
 yearList();
-
-// 스크롤 이벤트
-spans[0].onclick = function() {
-  window.scroll({top:introTop, behavior: 'smooth'});
-}
-spans[1].onclick = function() {
-  window.scroll({top:introTop, behavior: 'smooth'});
-}
-spans[2].onclick = function() {
-  window.scroll({top:mainTop, behavior: 'smooth'});
-}
-spans[3].onclick = function() {
-  window.scroll({top: document.body.scrollHeight, left: 0, behavior: 'smooth'});
-}
-spans[4].onclick = function() {
-  window.scroll({top:mainTop, behavior: 'smooth'});
-}
+scroll();
 
 // 최초 검색
 buttonEl.addEventListener('click', searchMoviesFirst);

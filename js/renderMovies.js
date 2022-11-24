@@ -6,6 +6,8 @@ export default function renderMovies(movies) {
     movieEl.className = 'group';
     const imgDivEl = document.createElement('div');
     imgDivEl.className = 'group__imgdiv';
+    imgDivEl.role = 'img';
+    imgDivEl.title = 'Poster';
     const infoDivEl = document.createElement('div');
     infoDivEl.className = 'group__infodiv';
     const titleEl = document.createElement('h4');
@@ -26,6 +28,7 @@ export default function renderMovies(movies) {
 
     if(`${movie.Poster}` === "N/A"){
       imgDivEl.style.backgroundImage = `url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png)`
+      imgDivEl.title = 'No image available';
     };
 
     // detail 버튼 클릭 시 detail 정보 불러오기

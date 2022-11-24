@@ -13,10 +13,13 @@ export default function renderDetail(details) {
   document.getElementById('director').innerText = `${details.Director}`;
   document.getElementById('genre').innerText = `${details.Genre}`;
   posterEl.style.backgroundImage = `url(${highQualityDetailPoster})`;
+  posterEl.role = 'img';
+  posterEl.title = 'Poster';
   bgEl.style.backgroundImage = `url(${highQualityDetailPoster})`;
   
   if(`${details.Poster}` === "N/A"){
     posterEl.style.backgroundImage = `url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png)`
+    posterEl.title = 'No image available';
   };
 
   const ratingsInfo = document.getElementById('ratings-info');
@@ -33,7 +36,7 @@ export default function renderDetail(details) {
     const resultEl = document.createElement('p');
     resultEl.className = 'result';
 
-    logoEl.src = '../images/' + `${details.Ratings[i].Source}` + '.png';
+    logoEl.src = `../images/${details.Ratings[i].Source}.png`;
     resultEl.textContent = `${details.Ratings[i].Value}`;
 
     ratingEl.append(logoEl, resultEl);
